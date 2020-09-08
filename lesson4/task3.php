@@ -1,33 +1,20 @@
 <?php
 
-$num = 2;
-$pow = 500;
+$num = 193924987345;
+$mult = 4232382487345;
 
-function binpow ($num, $pow) {
-	if ($pow == 0)
-		return 1;
-	if ($pow % 2 == 1)
-		return binpow ($num, $pow-1) * $num;
-	else {
-		$b = binpow ($num, $pow/2);
-      // return $b * $b;
-      if(($b * $b) < 1){
-         return $b * $b;
-      }
-      return mult($b);
-	}
-}
-file_put_contents('otvet.txt', binpow($num, $pow));
-// echo binpow($num, $pow);
 
-function mult($num)
+echo mult($num, $mult);
+
+function mult($num, $mult)
 {
    $count = 0;
    $arr = str_split($num);
+   $arr_mult = str_split($mult);
    $increment = 0;
    for ($i = count($arr) - 1; $i >= 0; $i--){
-      for($j = count($arr) - 1; $j >= 0; $j--){
-         $tempNum = $arr[$i] * $arr[$j] + $increment;
+      for($j = count($arr_mult) - 1; $j >= 0; $j--){
+         $tempNum = $arr[$i] * $arr_mult[$j] + $increment;
          if ($tempNum > 9) {
             $arr1[$count][] = $tempNum%10;
             $increment = intval($tempNum/10);
